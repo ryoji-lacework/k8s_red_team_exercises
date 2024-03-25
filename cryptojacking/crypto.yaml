@@ -1,5 +1,5 @@
 #Download and extract xmrig without attempting to run it immediately upon extraction. 
-#This can be useful for preparing the environment, conducting tests, or ensuring compliance with specific operational policies. 
+##This can be useful for preparing the environment, conducting tests, or ensuring compliance with specific operational policies. 
 
 apiVersion: apps/v1
 kind: Deployment

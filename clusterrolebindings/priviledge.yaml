@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: privilege-test
+  namespace: privilege-escalation-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: privilege-test
+  template:
+    metadata:
+      labels:
+        app: privilege-test
+    spec:
+      containers:
+      - name: ubuntu
+        image: ubuntu:latest
+        command: ["/bin/bash", "-c", "apt-get update && apt-get install -y curl && while true; do sleep 30; done"]

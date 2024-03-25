@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: privileged-deployment-example
+  labels:
+    app: privileged-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: privileged-example
+  template:
+    metadata:
+      labels:
+        app: privileged-example
+    spec:
+      containers:
+      - name: privileged-example
+        image: ubuntu:latest
+        command: ["/bin/bash", "-c"]
+        args:
+          - |
+            apt-get update && apt-get install -y procps curl
+            echo "Checking processes on the host..."
+            # Attempt to access the host's process namespace
+            if [ -e /proc/1/cmdline ]; then
+              echo "Access to the host's process namespace might be possible."
+              cat /proc/1/cmdline
+            else
+              echo "Cannot access the host's process namespace."
+            fi
+            tail -f /dev/null
+        securityContext:
+          allowPrivilegeEscalation: true
+          privileged: true
+          capabilities:
+            drop:
+              - ALL

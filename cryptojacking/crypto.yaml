@@ -1,0 +1,33 @@
+#Download and extract xmrig without attempting to run it immediately upon extraction. 
+#This can be useful for preparing the environment, conducting tests, or ensuring compliance with specific operational policies. 
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: crypto-miner
+  name: crypto-miner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crypto-miner
+  template:
+    metadata:
+      labels:
+        app: crypto-miner
+    spec:
+      containers:
+      - image: ubuntu:18.04
+        name: crypto-miner
+        command:
+        - /bin/sh
+        - -c
+        - |
+          apt update
+          apt install -y curl
+          curl -L https://github.com/xmrig/xmrig/releases/download/v6.19.2/xmrig-6.19.2-linux-x64.tar.gz -o xmrig.tar.gz --silent
+          tar xvfz xmrig.tar.gz
+          echo "xmrig downloaded and extracted"
+          cd xmrig-6.19.2
+          tail -f /dev/null

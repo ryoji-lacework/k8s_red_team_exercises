@@ -1,23 +1,24 @@
-Kubernetes Red Team Exercises
+# Kubernetes Red Team Exercises
 This repository contains a collection of Kubernetes deployment YAML files designed for security training and red team exercises. Each deployment showcases different security configurations and scenarios, ranging from privilege escalation to deploying vulnerable applications like JuiceShop. The goal is to provide a hands-on learning experience for understanding Kubernetes security mechanisms, potential misconfigurations, and their implications.
 
-Getting Started
+## Getting Started
 Before you begin, ensure you have the following prerequisites installed and configured:
 
-kubectl: The Kubernetes command-line tool, which allows you to run commands against Kubernetes clusters.
-A Kubernetes cluster: You can use Minikube for a local setup, or a cloud provider's Kubernetes service for a more realistic environment.
-Usage
+* kubectl: The Kubernetes command-line tool, which allows you to run commands against Kubernetes clusters.
+* A Kubernetes cluster: You can use Minikube for a local setup, or a cloud provider's Kubernetes service for a more realistic environment.
+
+## Usage
 To use the YAML files in this repository, first clone the repo to your local machine:
 
-bash
-Copy code
+```
 git clone https://github.com/ryoji-lacework/k8s_red_team_exercises.git
 cd k8s_red_team_exercises
+```
 Then, apply the desired YAML file to your Kubernetes cluster using kubectl:
 
-bash
-Copy code
+```
 kubectl apply -f <filename>.yaml
+```
 Replace <filename> with the name of the YAML file you wish to deploy.
 
 Exercises Overview

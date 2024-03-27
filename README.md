@@ -39,9 +39,8 @@ After deploying each scenario, you can explore various methods to detect and mit
 Cleanup
 To remove a deployed exercise from your cluster, use the delete command:
 
-bash
-Copy code
+```
 kubectl delete -f <filename>.yaml
-
+```
 Disclaimer
 These exercises are intended for educational purposes only. Do not deploy these configurations in production or other sensitive environments without proper security controls in place.

@@ -25,17 +25,17 @@ Exercises Overview
 The repository is structured with individual YAML files, each representing a specific security scenario:
 
 ## 1. Privileged Container Deployment
-File: allowprivilegeescalation/privileged.yaml
-Purpose: Demonstrates the creation of a container with elevated privileges (privileged: true) and allows privilege escalation within the container. This can be used to understand the risks associated with running containers in privileged mode.
+* File: allowprivilegeescalation/privileged.yaml
+* Purpose: Demonstrates the creation of a container with elevated privileges (privileged: true) and allows privilege escalation within the container. This can be used to understand the risks associated with running containers in privileged mode.
 ## 2. ClusterRoleBindings Attack Case
-File: clusterrolebindings/namespace.yaml, clusterrolebindings/priviledge.yaml, clusterrolebindings/rolebinding.yaml
-Purpose: Demonstrates the potential security implications of misconfigured ClusterRoleBindings in a Kubernetes cluster. ClusterRoleBindings apply cluster-wide permissions, which, if overly permissive, could allow unauthorized access and actions across all namespaces. The purpose of this exercise is to understand how attackers could leverage such configurations to escalate privileges and potentially compromise the entire cluster. This exercise underscores the importance of the principle of least privilege and careful management of ClusterRoleBindings.
+* File: clusterrolebindings/namespace.yaml, clusterrolebindings/priviledge.yaml, clusterrolebindings/rolebinding.yaml
+* Purpose: Demonstrates the potential security implications of misconfigured ClusterRoleBindings in a Kubernetes cluster. ClusterRoleBindings apply cluster-wide permissions, which, if overly permissive, could allow unauthorized access and actions across all namespaces. The purpose of this exercise is to understand how attackers could leverage such configurations to escalate privileges and potentially compromise the entire cluster. This exercise underscores the importance of the principle of least privilege and careful management of ClusterRoleBindings.
 ## 3. Deploying JuiceShop
-File: juiceshop/juice-shop-deployment.yaml, juiceshop/juice-shop-service.yaml
-Purpose: Deploys the OWASP JuiceShop, a purposely vulnerable web application, within a Kubernetes cluster. This exercise is aimed at exploring common web application vulnerabilities in a containerized environment.
+* File: juiceshop/juice-shop-deployment.yaml, juiceshop/juice-shop-service.yaml
+* Purpose: Deploys the OWASP JuiceShop, a purposely vulnerable web application, within a Kubernetes cluster. This exercise is aimed at exploring common web application vulnerabilities in a containerized environment.
 ## 4. Cryptojacking Attack Scenario
-File: cryptojacking/crypto.yaml
-Purpose: Simulate a cryptojacking attack within a Kubernetes cluster by deploying a container that downloads xmrig. 
+* File: cryptojacking/crypto.yaml
+* Purpose: Simulate a cryptojacking attack within a Kubernetes cluster by deploying a container that downloads xmrig. 
 
 ## Detecting and Mitigating Risks
 After deploying each scenario, you can explore various methods to detect and mitigate the potential risks associated with the configurations. This may include configuring network policies, applying Pod Security Policies (PSPs), or using security tools designed for Kubernetes environments.
